@@ -1,16 +1,30 @@
-let path3D = function(id) {
+let Path3D = function(id) {
     id -= 1;
-    let originalChild = $('.path3D').eq(id).children();
+    //DOM Element reference
+    targetElem = $('.path3D').eq(id);
+    //get all children
+    let slides = $(targetElem).children('.screen');
     let slidesTransform = [];
-    originalChild.forEach(function(item) {
-        //get all transform data
+    for(let i=0; i < slides.length; i++) {
+        //get all children transform data
         slidesTransform.push({
-            translation: item.data('translation'),
-            rotation: item.data('rotation'),
-            scale: item.data('scale')
-        })
-    });
-    let attr {
-        targetElem: $('.path3D').eq(id)
+            translation: slides.eq(i).data('translation'),
+            rotation: slides.eq(i).data('rotation'),
+            scale: slides.eq(i).data('scale')
+        });
     };
+
+    //class constructor
+    this.construct = function() {
+        //place all Screen Elem
+        
+    };
+
+    this.construct();
 };
+
+$(function() {
+    $('.path3D').each(function(i) {
+        let p3D = new Path3D(i);
+    });
+});
